@@ -23,5 +23,5 @@
     <ProjectReference Include="..\ConsoleApp\ConsoleApp.csproj" />
     <ProjectReference Include="..\core\Core.csproj" />
   </ItemGroup>
-
+	
 </Project>
