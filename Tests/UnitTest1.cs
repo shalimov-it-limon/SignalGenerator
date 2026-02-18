@@ -3,6 +3,7 @@ using Xunit;
 using core;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Tests
 {
@@ -57,6 +58,23 @@ namespace Tests
             var file = Directory.GetFiles(Directory.GetCurrentDirectory(), "test_*.txt");
             Assert.NotEmpty(file);
         }
-    }
 
+
+        [Fact]
+        public void Save_ShouldCreateAndContainHeader()
+        {
+            var repo = new FileSignalRepository();
+            var points = new List<SignalPoint>
+    {
+        new SignalPoint(0, 1)
+    };
+
+            repo.Save("test", 1, 1, points);
+
+            var file = Directory.GetFiles(Directory.GetCurrentDirectory(), "test_*.txt").First();
+            var content = File.ReadAllText(file);
+
+            Assert.Contains("Type: test", content);
+        }
+    }
 }
