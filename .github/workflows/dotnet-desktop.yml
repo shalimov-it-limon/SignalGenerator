@@ -1,4 +1,4 @@
-name: .NET 5 CI
+name: .NET 5 CI with Coverage
 
 on:
   push:
@@ -16,7 +16,7 @@ jobs:
     - name: Setup .NET 5
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 5.0.x
+        dotnet-version: 5.0.408
 
     - name: Restore
       run: dotnet restore
@@ -24,5 +24,21 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release --no-restore
 
-    - name: Test
-      run: dotnet test --configuration Release --no-build --verbosity normal
+    - name: Run tests with coverage
+      run: dotnet test --configuration Release --no-build --collect:"XPlat Code Coverage"
+
+    - name: Install ReportGenerator
+      run: dotnet tool install -g dotnet-reportgenerator-globaltool
+
+    - name: Generate coverage report
+      run: |
+        reportgenerator `
+        -reports:**/coverage.cobertura.xml `
+        -targetdir:coverage-report `
+        -reporttypes:Html
+
+    - name: Upload coverage report
+      uses: actions/upload-artifact@v4
+      with:
+        name: coverage-report
+        path: coverage-report
