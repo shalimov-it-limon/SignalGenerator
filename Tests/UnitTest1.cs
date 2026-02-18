@@ -1,7 +1,6 @@
 using System;
 using Xunit;
 using core;
-using ConsoleApp;
 using System.Collections.Generic;
 using System.IO;
 
@@ -59,7 +58,5 @@ namespace Tests
             Assert.NotEmpty(file);
         }
     }
-
-
 
 }
