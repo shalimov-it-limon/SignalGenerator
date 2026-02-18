@@ -52,3 +52,13 @@ jobs:
       with:
         name: coverage-report
         path: coverage-report
+
+    - name: Check coverage threshold
+      run: |
+        reportgenerator \
+        -reports:./TestResults/**/coverage.cobertura.xml \
+        -targetdir:coverage-check \
+        -reporttypes:TextSummary
+
+        cat coverage-check/Summary.txt
+
