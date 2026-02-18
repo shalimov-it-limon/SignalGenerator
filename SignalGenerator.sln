@@ -20,7 +20,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflow", "workflow", "{24
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{4CE38807-374C-4368-B1CA-BB2229C56667}"
 	ProjectSection(SolutionItems) = preProject
-		TextFile2.txt = TextFile2.txt
+		TestCases.txt = TestCases.txt
 	EndProjectSection
 EndProject
 Global
