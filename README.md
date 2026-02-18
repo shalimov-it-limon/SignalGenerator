@@ -1,8 +1,8 @@
 SignalGenerator — приложение для генерации и анализа математических сигналов (синусоида и меандр).
 
 Системные требования:
-	 .NET 5.0
-	 Windows / Linux / macOS
+	 .NET 5.0;
+	 Windows / Linux / macOS;
 	 Visual Studio 2019
 
 Пример работы (консоль):
